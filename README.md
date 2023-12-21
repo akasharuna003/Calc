@@ -25,7 +25,7 @@ Validate the HTML and CSS code.
 Publish the website in the given URL.
 
 ## PROGRAM :
-~~~
+```
 calc.html
 <html lang="en">
   <head>
@@ -154,6 +154,8 @@ const calculate = (btnValue) => {
 buttons.forEach((button) => {
   button.addEventListener("click", (e) => calculate(e.target.dataset.value));
 });
+
+```
 
 ## OUTPUT:
 ![Screenshot 2023-12-21 111958](https://github.com/Sanjaichitra/Calc/assets/144870518/bad8cfba-0f86-4c25-ba4e-d16e888a1e70)
