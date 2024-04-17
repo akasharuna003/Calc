@@ -1,5 +1,5 @@
 # Ex.08 Design of a Standard Calculator
-## Date:20.12.2023
+## Date:17/04/2024
 
 ## AIM:
 To design a web application for a standard calculator with minimum five operations.
@@ -26,142 +26,69 @@ Publish the website in the given URL.
 
 ## PROGRAM :
 ```
-calc.html
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    
-    <title>Calculator in HTML CSS & JavaScript</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    
-    <div class="container">
-      <h1 align="center">SANJAI S CALCULATOR</h1> 
-      <h2 align="center">REGISTER NUMBER:212223230185</h2>
-      
-      <input type="text" class="display" />
 
-      <div class="buttons">
-        <button class="operator" data-value="AC">AC</button>
-        <button class="operator" data-value="DEL">DEL</button>
-        <button class="operator" data-value="%">%</button>
-        <button class="operator" data-value="/">/</button>
-
-        <button data-value="7">7</button>
-        <button data-value="8">8</button>
-        <button data-value="9">9</button>
-        <button class="operator" data-value="*">*</button>
-
-        <button data-value="4">4</button>
-        <button data-value="5">5</button>
-        <button data-value="6">6</button>
-        <button class="operator" data-value="-">-</button>
-
-        <button data-value="1">1</button>
-        <button data-value="2">2</button>
-        <button data-value="3">3</button>
-        <button class="operator" data-value="+">+</button>
-
-        <button data-value="0">0</button>
-        <button data-value="00">00</button>
-        <button data-value=".">.</button>
-        <button class="operator" data-value="=">=</button>
-      </div>
+<head>
+    <title>CALCULATOR</title>
+    <script>
+        function fn(e) {
+            if (e.innerHTML == '=') {
+                output.value = eval(output.value);
+            }
+            else if (e.id == 'back') {
+                v = output.value;
+                output.value = v.substring(0, v.length - 1);
+            }
+            else if (e.innerHTML == 'C') {
+                output.value = '';
+            }
+            else {
+                output.value += e.innerHTML;
+            }
+        }
+    </script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body>
+    <div class=" bg-dark mx-auto m-1 text-center text-white" style="width: 24rem;">AKASH.R (212221220003)</div>
+    <div class="bg-dark row mx-auto text-center" style="width: 24rem;">
+        <div class="col-12 my-4"><input type="text" name="" id="output"
+                style="width: 100%;height: 50px;border-radius: 25px;"></div>
+        <div class="m-3 col-2 btn btn-primary rounded-4" onclick="fn(this)">(</div>
+        <div class="m-3 col-2 btn btn-primary rounded-4" onclick="fn(this)">)</div>
+        <div class="m-3 col-2 btn btn-danger rounded-4" onclick="fn(this)">C</div>
+        <div class="m-3 col-2 btn btn-danger rounded-4" onclick="fn(this)" id="back"><i class="bi bi-backspace"></i>
+        </div>
+        <div class="m-3 col-2 btn btn-success rounded-4" onclick="fn(this)">7</div>
+        <div class="m-3 col-2 btn btn-success rounded-4" onclick="fn(this)">8</div>
+        <div class="m-3 col-2 btn btn-success rounded-4" onclick="fn(this)">9</div>
+        <div class="m-3 col-2 btn btn-primary rounded-4" onclick="fn(this)">*</div>
+        <div class="m-3 col-2 btn btn-success rounded-4" onclick="fn(this)">4</div>
+        <div class="m-3 col-2 btn btn-success rounded-4" onclick="fn(this)">5</div>
+        <div class="m-3 col-2 btn btn-success rounded-4" onclick="fn(this)">6</div>
+        <div class="m-3 col-2 btn btn-primary rounded-4" onclick="fn(this)">-</div>
+        <div class="m-3 col-2 btn btn-success rounded-4" onclick="fn(this)">1</div>
+        <div class="m-3 col-2 btn btn-success rounded-4" onclick="fn(this)">2</div>
+        <div class="m-3 col-2 btn btn-success rounded-4" onclick="fn(this)">3</div>
+        <div class="m-3 col-2 btn btn-primary rounded-4" onclick="fn(this)">+</div>
+        <div class="m-3 col-2 btn btn-success rounded-4" onclick="fn(this)">0</div>
+        <div class="m-3 col-2 btn btn-success rounded-4" btn-success onclick="fn(this)">.</div>
+        <div class="m-3 col-2 btn btn-primary rounded-4" onclick="fn(this)">%</div>
+        <div class="m-3 col-2 btn btn-primary rounded-4" onclick="fn(this)">/</div>
+        <div class="m-3 col-11 btn btn-warning rounded-4" onclick="fn(this)">=</div>
     </div>
+</body>
 
-    <script src="script.js"></script>
-  </body>
 </html>
-
-
-style.css
-/* Import Google font - Poppins */
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
-}
-body {
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: whitesmoke;
-}
-
-.container {
-  position: relative;
-  max-width: 500px;
-  width: 100%;
-  border-radius: 12px;
-  padding: 10px 20px 20px;
-  background: #fff;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
-}
-.display {
-  height: 80px;
-  width: 100%;
-  outline: none;
-  border: none;
-  text-align: right;
-  margin-bottom: 10px;
-  font-size: 25px;
-  color: #000e1a;
-  pointer-events: none;
-}
-.buttons {
-  display: grid;
-  grid-gap: 10px;
-  grid-template-columns: repeat(4, 1fr);
-}
-.buttons button {
-  padding: 10px;
-  border-radius: 6px;
-  border: none;
-  font-size: 20px;
-  cursor: pointer;
-  background-color: #eee;
-}
-.buttons button:active {
-  transform: scale(0.99);
-}
-.operator {
-  color: #2f9fff;
-}
-script.js
-const display = document.querySelector(".display");
-const buttons = document.querySelectorAll("button");
-const specialChars = ["%", "*", "/", "-", "+", "="];
-let output = "";
-
-const calculate = (btnValue) => {
-  display.focus();
-  if (btnValue === "=" && output !== "") {
-    output = eval(output.replace("%", "/100"));
-  } else if (btnValue === "AC") {
-    output = "";
-  } else if (btnValue === "DEL") {
-    output = output.toString().slice(0, -1);
-  } else {
-    if (output === "" && specialChars.includes(btnValue)) return;
-    output += btnValue;
-  }
-  display.value = output;
-};
-
-buttons.forEach((button) => {
-  button.addEventListener("click", (e) => calculate(e.target.dataset.value));
-});
-
 ```
-
 ## OUTPUT:
-![Screenshot 2023-12-21 111958](https://github.com/Sanjaichitra/Calc/assets/144870518/bad8cfba-0f86-4c25-ba4e-d16e888a1e70)
-![Screenshot 2023-12-21 112014](https://github.com/Sanjaichitra/Calc/assets/144870518/41815473-b01c-40a8-95fc-0fc524932ab7)
+
+![Screenshot 2024-04-17 143200](https://github.com/akasharuna003/Calc/assets/135735278/04488af9-99ec-440d-9829-4058a5a4b850)
+![Screenshot 2024-04-17 143218](https://github.com/akasharuna003/Calc/assets/135735278/0dd812ff-6757-4db5-ad56-1f8e53399ef9)
+
 
 ## RESULT:
-
-The program for designing a standard calculator using HTML and CSS is executed successfully
-
+The program for designing a standard calculator using HTML and CSS is executed successfully.
